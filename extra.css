@@ -115,3 +115,10 @@
   margin-bottom: 15px;
   text-shadow: 0 0 8px #fff176, 0 0 15px #fbc02d;
 }
+
+/* 📩 Sobre estilo */
+.sobre { ... }
+.sobre:hover { ... }
+.sobre .tapa { ... }
+.sobre .papel { ... }
+.sobre.abierto .papel { ... }
