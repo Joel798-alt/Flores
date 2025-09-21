@@ -168,3 +168,13 @@ canvas {
   z-index: 1; /* 👈 siempre al fondo */
   display: block; /* elimina espacios raros */
 }
+
+.sobre {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;   /* 👈 tamaño fijo */
+  height: 140px;
+  z-index: 10000; /* 👈 flotando sobre el canvas */
+}
