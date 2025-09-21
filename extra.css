@@ -158,3 +158,13 @@
 .sobre.abierto .tapa {
   transform: rotateX(180deg);
 }
+
+canvas {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 1; /* 👈 siempre al fondo */
+  display: block; /* elimina espacios raros */
+}
