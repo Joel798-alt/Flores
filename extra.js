@@ -1,7 +1,6 @@
 const sobre = document.getElementById("sobre");
 const typedText = document.getElementById("typed-text");
 
-// 💌 Texto romántico
 const mensaje = `Amor mío,  
 Desde que llegaste a mi vida todo cambió.  
 Eres ese pensamiento constante que me acompaña en cada momento del día,  
@@ -17,7 +16,7 @@ Eres mi sol, mi refugio y mi razón de ser.
 Gracias por existir, gracias por elegirme, gracias por ser mi todo. 🌻💛`;
 
 let i = 0;
-let speed = 40; // velocidad escritura
+let speed = 40; 
 let typing;
 
 function typeWriter() {
@@ -29,14 +28,11 @@ function typeWriter() {
 }
 
 sobre.addEventListener("click", () => {
-  sobre.classList.toggle("abierto");
-  if (sobre.classList.contains("abierto")) {
+  if (!sobre.classList.contains("abierto")) {
+    sobre.classList.add("abierto");
     typedText.textContent = "";
     i = 0;
     clearTimeout(typing);
-    typeWriter();
-  } else {
-    clearTimeout(typing);
-    typedText.textContent = "";
+    setTimeout(typeWriter, 800);
   }
 });
