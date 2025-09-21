@@ -3,13 +3,20 @@
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 2em;
-  color: #ffeb3b;
-  font-family: 'Comic Sans MS', cursive;
+  font-size: 3em;
+  font-family: "Trebuchet MS", sans-serif;
   font-weight: bold;
-  text-shadow: 0 0 5px #fff176, 0 0 10px #fff176, 0 0 20px #ffeb3b, 0 0 40px #fbc02d;
-  animation: brillar 2s infinite alternate;
+  color: #ffdde1;
+  text-shadow: 0 0 10px #ff80ab,
+               0 0 20px #ff4081,
+               0 0 40px #f50057;
+  animation: glow 1.5s infinite alternate;
   z-index: 9999;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px #ff80ab, 0 0 15px #ff4081; }
+  to   { text-shadow: 0 0 20px #f50057, 0 0 40px #ff1744; }
 }
 
 #btnMusica {
