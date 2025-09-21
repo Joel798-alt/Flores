@@ -12,26 +12,23 @@
   z-index: 9999;
 }
 
-@keyframes brillar {
-  from { text-shadow: 0 0 5px #fff176, 0 0 10px #fff176; }
-  to { text-shadow: 0 0 20px #ffeb3b, 0 0 40px #fbc02d, 0 0 60px #f57f17; }
-}
 #btnMusica {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px 15px;
+  top: 20px;         /* 👈 arriba */
+  right: 20px;       /* 👈 a la derecha */
+  padding: 15px 25px; /* 👈 más grande */
   background: yellow;
   border: none;
-  border-radius: 8px;
-  font-size: 1em;
+  border-radius: 10px; /* 👈 un poco más redondeado */
+  font-size: 1.2em;    /* 👈 letra más grande */
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 0 10px black;
+  box-shadow: 0 0 12px black;
   transition: 0.3s;
-  z-index: 10000; /* 👈 asegura que quede encima de todo */
+  z-index: 10000; /* 👈 siempre encima */
 }
 
 #btnMusica:hover {
   background: orange;
+  transform: scale(1.1); /* 👈 se agranda un poco al pasar el dedo */
 }
