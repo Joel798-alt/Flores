@@ -42,66 +42,55 @@
   background: orange;
   transform: scale(1.1); /* 👈 se agranda un poco al pasar el dedo */
 }
-/* Botón sorpresa */
+/* ✉️ Botón con forma de carta animada */
 #btnSorpresa {
   position: fixed;
-  bottom: 80px;
+  bottom: 80px; /* un poco más arriba */
   right: 20px;
-  padding: 12px 18px;
-  background: linear-gradient(45deg, #ffeb3b, #fbc02d);
-  border: none;
-  border-radius: 10px;
-  font-size: 1.2em;
-  font-weight: bold;
+  width: 80px;
+  height: 55px;
+  background: #ffeb3b;
+  border: 2px solid #fbc02d;
+  border-radius: 6px;
   cursor: pointer;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
-  transition: 0.3s;
-  z-index: 10000;
+  box-shadow: 0 4px 15px rgba(255, 235, 59, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
 }
 
-#btnSorpresa:hover {
-  background: linear-gradient(45deg, #fff176, #ffca28);
-  transform: scale(1.1);
-}
-
-/* Ventana modal */
-.modal {
-  display: none; /* oculta por defecto */
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 20000;
-}
-
-.modal-contenido {
-  background: white;
-  padding: 20px 30px;
-  border-radius: 15px;
-  max-width: 500px;
-  text-align: center;
-  box-shadow: 0 0 20px rgba(0,0,0,0.8);
-  animation: aparecer 0.5s ease;
-  font-family: 'Comic Sans MS', cursive;
-  font-size: 1.1em;
-  line-height: 1.5em;
-}
-
-@keyframes aparecer {
-  from { transform: scale(0.7); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-/* Botón cerrar */
-#cerrarModal {
+/* 📩 Tapa del sobre */
+#btnSorpresa::before {
+  content: "";
   position: absolute;
-  top: 10px;
-  right: 15px;
-  background: transparent;
-  border: none;
-  font-size: 2em;
-  cursor: pointer;
-  color: red;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 50%, #fbc02d 50%);
+  clip-path: polygon(0 0, 100% 0, 50% 50%);
+  transition: transform 0.6s ease;
+  transform-origin: top;
+}
+
+/* 💌 Emoji dentro del sobre */
+#btnSorpresa::after {
+  content: "💌";
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5em;
+  transition: opacity 0.3s ease;
+}
+
+/* ✨ animación hover */
+#btnSorpresa:hover {
+  transform: scale(1.1) rotate(-3deg);
+  box-shadow: 0 6px 20px rgba(255, 235, 59, 0.8);
+}
+
+/* 📖 animación abrir sobre */
+#btnSorpresa.open::before {
+  transform: rotateX(180deg);
 }
