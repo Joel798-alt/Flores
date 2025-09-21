@@ -1,14 +1,23 @@
-const sobre = document.getElementById("btnSorpresa");
+const sobre = document.getElementById("sobre");
 const typedText = document.getElementById("typed-text");
 
 // 💌 Texto romántico
 const mensaje = `Amor mío,  
-Desde que llegaste a mi vida todo cambió...  
+Desde que llegaste a mi vida todo cambió.  
+Eres ese pensamiento constante que me acompaña en cada momento del día,  
+y la razón por la que sonrío aun cuando nadie me ve.  
+
+Quiero que sepas que en cada latido de mi corazón estás tú,  
+y que mis sueños siempre llevan tu nombre.  
+
+Tú eres mi fuerza y mi inspiración.  
+Prometo amarte siempre, porque eres la persona con la que quiero caminar cada día de mi vida.  
+
 Eres mi sol, mi refugio y mi razón de ser.  
-Te amaré por siempre. 🌻💛`;
+Gracias por existir, gracias por elegirme, gracias por ser mi todo. 🌻💛`;
 
 let i = 0;
-let speed = 40; // velocidad de escritura
+let speed = 40; // velocidad escritura
 let typing;
 
 function typeWriter() {
@@ -20,7 +29,7 @@ function typeWriter() {
 }
 
 sobre.addEventListener("click", () => {
-  sobre.classList.toggle("abierto"); // abre/cierra el sobre
+  sobre.classList.toggle("abierto");
   if (sobre.classList.contains("abierto")) {
     typedText.textContent = "";
     i = 0;
