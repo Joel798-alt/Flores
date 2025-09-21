@@ -3,18 +3,23 @@
   top: 30px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 2em;
+  font-size: 3em;  /* 👈 lo subí de 2em a 3em */
   color: #ffeb3b;
   font-family: 'Comic Sans MS', cursive;
   font-weight: bold;
-  text-shadow: 0 0 5px #fff176, 0 0 10px #fff176, 0 0 20px #ffeb3b, 0 0 40px #fbc02d;
+  text-shadow: 0 0 5px #fff176,
+               0 0 10px #fff176,
+               0 0 20px #ffeb3b,
+               0 0 40px #fbc02d;
   animation: brillar 2s infinite alternate;
   z-index: 9999;
 }
 
 @keyframes brillar {
   from { text-shadow: 0 0 5px #fff176, 0 0 10px #fff176; }
-  to { text-shadow: 0 0 20px #ffeb3b, 0 0 40px #fbc02d, 0 0 60px #f57f17; }
+  to   { text-shadow: 0 0 20px #ffeb3b,
+                   0 0 40px #fbc02d,
+                   0 0 60px #f57f17; }
 }
 
 #btnMusica {
