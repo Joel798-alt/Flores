@@ -3,7 +3,6 @@ const modal = document.getElementById("modalSorpresa");
 const cerrar = document.getElementById("cerrarModal");
 const typedText = document.getElementById("typed-text");
 
-// 💌 Mensaje que se escribirá poco a poco
 const mensaje = `Amor mío,  
 Desde que llegaste a mi vida todo cambió. 
 Eres ese pensamiento constante que me acompaña en cada momento del día, 
@@ -19,7 +18,7 @@ Eres mi sol, mi refugio y mi razón de ser.
 Gracias por existir, gracias por elegirme, gracias por ser mi todo. 🌻💛`;
 
 let i = 0;
-let speed = 40; // ⏳ velocidad de escritura (ms por letra)
+let speed = 40;
 let typing;
 
 function typeWriter() {
@@ -31,11 +30,18 @@ function typeWriter() {
 }
 
 btnSorpresa.addEventListener("click", () => {
-  modal.style.display = "flex";
-  typedText.textContent = ""; // reset
-  i = 0;
-  clearTimeout(typing);
-  typeWriter();
+  // 👇 Animar el sobre
+  btnSorpresa.classList.add("open");
+
+  // Espera que termine la animación del sobre
+  setTimeout(() => {
+    modal.style.display = "flex";
+    typedText.textContent = "";
+    i = 0;
+    clearTimeout(typing);
+    typeWriter();
+    btnSorpresa.classList.remove("open"); // reset
+  }, 700); // mismo tiempo que la animación CSS
 });
 
 cerrar.addEventListener("click", () => {
