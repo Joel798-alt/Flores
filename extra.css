@@ -18,7 +18,7 @@
 }
 #btnMusica {
   position: fixed;
-  bottom: 20px;
+  top: 20px;   /* 👈 en lugar de bottom */
   right: 20px;
   padding: 10px 15px;
   background: yellow;
@@ -29,7 +29,7 @@
   cursor: pointer;
   box-shadow: 0 0 10px black;
   transition: 0.3s;
-  z-index: 10000; /* 👈 asegura que quede encima de todo */
+  z-index: 10000;
 }
 
 #btnMusica:hover {
