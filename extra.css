@@ -1,4 +1,4 @@
-/* 🌟 MENSAJE PRINCIPAL */
+/* 🌟 Mensaje arriba */
 .mensaje {
   position: absolute;
   top: 30px;
@@ -23,7 +23,7 @@
                    0 0 60px #f57f17; }
 }
 
-/* 🎵 BOTÓN MÚSICA */
+/* 🎵 Botón música */
 #btnMusica {
   position: fixed;
   top: 20px;
@@ -39,47 +39,42 @@
   transition: 0.3s;
   z-index: 10000;
 }
+
 #btnMusica:hover {
   background: orange;
   transform: scale(1.1);
 }
 
-/* 🌟 CANVAS FLORES Y CORAZONES */
+/* 🎨 Fondo de flores (canvas) */
 canvas {
   position: fixed !important;
   top: 0;
   left: 0;
   width: 100vw !important;
   height: 100vh !important;
-  z-index: 1; /* 👈 siempre al fondo */
+  z-index: 1;
   display: block;
 }
 
-/* 📩 SOBRE (centrado abajo) */
+/* 📩 SOBRE CENTRADO */
 .sobre {
-  position: fixed;
-  bottom: 40px;
+  position: absolute;
+  top: 50%; 
   left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 80px;
+  transform: translate(-50%, -50%);
+  width: 220px;   /* 👈 tamaño del sobre */
+  height: 160px;
   cursor: pointer;
-  z-index: 10000;
-}
-.sobre .tapa {
-  width: 100%;
-  height: 100%;
-  background: #ffc107;
-  clip-path: polygon(0 0, 100% 0, 50% 50%);
-}
-.sobre .cuerpo {
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  border: 2px solid #ffc107;
+  z-index: 2000; /* encima del canvas */
 }
 
-/* 💌 CARTA EMERGENTE */
+.sobre img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- CARTA EMERGENTE --- */
 .carta {
   display: none;
   position: fixed;
@@ -88,10 +83,11 @@ canvas {
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.7);
-  z-index: 20000; /* 👆 encima de todo */
+  z-index: 3000;
   justify-content: center;
   align-items: center;
 }
+
 .carta .contenido {
   background: #fff;
   padding: 30px;
@@ -104,6 +100,7 @@ canvas {
   position: relative;
   animation: fadeIn 0.5s ease;
 }
+
 .carta .cerrar {
   position: absolute;
   top: 10px;
@@ -111,6 +108,7 @@ canvas {
   font-size: 28px;
   cursor: pointer;
 }
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-30px); }
   to { opacity: 1; transform: translateY(0); }
