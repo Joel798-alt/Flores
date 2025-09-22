@@ -1,80 +1,28 @@
-/* 🌟 Mensaje arriba */
-.mensaje {
-  position: absolute;
-  top: 30px;
+/* --- SOBRE (icono abajo centrado) --- */
+.sobre {
+  position: fixed;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 3em;
-  color: #ffeb3b;
-  font-family: 'Comic Sans MS', cursive;
-  font-weight: bold;
-  text-shadow: 0 0 5px #fff176,
-               0 0 10px #fff176,
-               0 0 20px #ffeb3b,
-               0 0 40px #fbc02d;
-  animation: brillar 2s infinite alternate;
-  z-index: 9999;
-}
-
-@keyframes brillar {
-  from { text-shadow: 0 0 5px #fff176, 0 0 10px #fff176; }
-  to   { text-shadow: 0 0 20px #ffeb3b,
-                   0 0 40px #fbc02d,
-                   0 0 60px #f57f17; }
-}
-
-/* 🎵 Botón música */
-#btnMusica {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 15px 25px;
-  background: yellow;
-  border: none;
-  border-radius: 10px;
-  font-size: 1.2em;
-  font-weight: bold;
+  width: 120px;   /* ajusta tamaño */
+  height: 80px;
   cursor: pointer;
-  box-shadow: 0 0 12px black;
-  transition: 0.3s;
-  z-index: 10000;
+  z-index: 2000;
 }
-
-#btnMusica:hover {
-  background: orange;
-  transform: scale(1.1);
-}
-
-/* 🎨 Fondo de flores (canvas) */
-canvas {
-  position: fixed !important;
-  top: 0;
-  left: 0;
-  width: 100vw !important;
-  height: 100vh !important;
-  z-index: 1;
-  display: block;
-}
-
-/* 📩 SOBRE CENTRADO */
-.sobre {
-  position: absolute;
-  top: 50%; 
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 220px;   /* 👈 tamaño del sobre */
-  height: 160px;
-  cursor: pointer;
-  z-index: 2000; /* encima del canvas */
-}
-
-.sobre img {
+.sobre .tapa {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  background: #ffc107;
+  clip-path: polygon(0 0, 100% 0, 50% 50%);
+}
+.sobre .cuerpo {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border: 2px solid #ffc107;
 }
 
-/* --- CARTA EMERGENTE --- */
+/* --- CARTA EMERGENTE (modal centrado grande) --- */
 .carta {
   display: none;
   position: fixed;
@@ -91,25 +39,27 @@ canvas {
 .carta .contenido {
   background: #fff;
   padding: 30px;
-  max-width: 500px;
-  width: 90%;
-  border-radius: 10px;
-  font-size: 20px;
+  width: 90%;          /* ocupa casi todo en celus */
+  max-width: 600px;    /* tamaño cómodo en PC */
+  border-radius: 12px;
+  font-size: 18px;
   font-family: "Georgia", serif;
   line-height: 1.6;
   position: relative;
   animation: fadeIn 0.5s ease;
+  text-align: justify;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
 }
 
 .carta .cerrar {
   position: absolute;
   top: 10px;
   right: 15px;
-  font-size: 28px;
+  font-size: 26px;
   cursor: pointer;
 }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
-  }
+  to   { opacity: 1; transform: translateY(0); }
+}
