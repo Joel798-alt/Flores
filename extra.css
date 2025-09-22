@@ -1,65 +1,134 @@
-/* --- SOBRE (icono abajo centrado) --- */
+/* --- reset / layout --- */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* evita barra lateral que achica el canvas */
+  box-sizing: border-box;
+}
+
+/* tu mensaje superior (ajusta si ya lo tienes) */
+.mensaje {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3em;
+  color: #ffeb3b;
+  font-family: 'Comic Sans MS', cursive;
+  font-weight: bold;
+  text-shadow: 0 0 5px #fff176, 0 0 10px #fff176, 0 0 20px #ffeb3b, 0 0 40px #fbc02d;
+  animation: brillar 2s infinite alternate;
+  z-index: 11000;
+}
+
+/* botón música (si lo usas) */
+#btnMusica {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  background: yellow;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2em;
+  z-index: 11000;
+}
+
+/* ----------------------------- */
+/* Asegurar canvas / fondo detrás */
+/* ----------------------------- */
+canvas, .flowers, .night {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 1; /* siempre al fondo */
+  display: block;
+}
+
+/* ----------------------------- */
+/* SOBRE (icono abajo centrado)  */
+/* ----------------------------- */
 .sobre {
   position: fixed;
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  width: 120px;   /* ajusta tamaño */
-  height: 80px;
+  width: 140px;
+  height: 90px;
   cursor: pointer;
-  z-index: 2000;
+  z-index: 2000; /* sobre las flores pero debajo de la carta modal */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
 }
 .sobre .tapa {
   width: 100%;
-  height: 100%;
+  height: 60%;
   background: #ffc107;
-  clip-path: polygon(0 0, 100% 0, 50% 50%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 .sobre .cuerpo {
   width: 100%;
-  height: 100%;
+  height: 40%;
   background: #fff;
-  border: 2px solid #ffc107;
+  border: 2px solid #d4af37;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
 }
 
-/* --- CARTA EMERGENTE (modal centrado grande) --- */
+/* ----------------------------- */
+/* CARTA EMERGENTE (modal)       */
+/* ----------------------------- */
 .carta {
-  display: none;
+  display: none;                /* oculto hasta clic */
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  z-index: 3000;
-  justify-content: center;
+  inset: 0;                     /* top:0;left:0;right:0;bottom:0 */
+  background: rgba(0,0,0,0.65);
+  z-index: 30000;               /* arriba de todo */
+  display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
 .carta .contenido {
   background: #fff;
-  padding: 30px;
-  width: 90%;          /* ocupa casi todo en celus */
-  max-width: 600px;    /* tamaño cómodo en PC */
+  padding: 28px;
+  width: 100%;
+  max-width: 640px;               /* tamaño cómodo */
   border-radius: 12px;
-  font-size: 18px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.3);
   font-family: "Georgia", serif;
+  font-size: 19px;                /* letra grande como pediste */
   line-height: 1.6;
-  position: relative;
-  animation: fadeIn 0.5s ease;
+  color: #222;
+  max-height: calc(100vh - 80px); /* evita desbordar en móviles */
+  overflow-y: auto;
   text-align: justify;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  position: relative;
 }
 
+/* botón cerrar */
 .carta .cerrar {
   position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 26px;
+  top: 8px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
   cursor: pointer;
+  color: #333;
 }
 
+/* animación de aparición */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-30px); }
+  from { opacity: 0; transform: translateY(-16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+.carta .contenido { animation: fadeIn 0.35s ease; }
