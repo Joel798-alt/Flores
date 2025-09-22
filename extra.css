@@ -1,9 +1,10 @@
+/* 🌟 MENSAJE PRINCIPAL */
 .mensaje {
   position: absolute;
   top: 30px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 3em;  /* 👈 lo subí de 2em a 3em */
+  font-size: 3em;
   color: #ffeb3b;
   font-family: 'Comic Sans MS', cursive;
   font-weight: bold;
@@ -22,143 +23,28 @@
                    0 0 60px #f57f17; }
 }
 
+/* 🎵 BOTÓN MÚSICA */
 #btnMusica {
   position: fixed;
-  top: 20px;         /* 👈 arriba */
-  right: 20px;       /* 👈 a la derecha */
-  padding: 15px 25px; /* 👈 más grande */
+  top: 20px;
+  right: 20px;
+  padding: 15px 25px;
   background: yellow;
   border: none;
-  border-radius: 10px; /* 👈 un poco más redondeado */
-  font-size: 1.2em;    /* 👈 letra más grande */
+  border-radius: 10px;
+  font-size: 1.2em;
   font-weight: bold;
   cursor: pointer;
   box-shadow: 0 0 12px black;
   transition: 0.3s;
-  z-index: 10000; /* 👈 siempre encima */
-}
-
-#btnMusica:hover {
-  background: orange;
-  transform: scale(1.1); /* 👈 se agranda un poco al pasar el dedo */
-}
-
-#btnSorpresa {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #ffeb3b;
-  border: none;
-  padding: 15px 25px;
-  font-size: 1.2em;
-  font-weight: bold;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 0 0 15px rgba(0,0,0,0.4);
-  transition: transform 0.3s, background 0.3s;
   z-index: 10000;
 }
-
-#btnSorpresa:hover {
-  background: #ffc107;
+#btnMusica:hover {
+  background: orange;
   transform: scale(1.1);
 }
 
-.modal {
-  display: none; 
-  position: fixed;
-  top: 0; 
-  left: 0;
-  width: 100%; 
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 20000;
-}
-
-.modal-contenido {
-  background: #fff;
-  padding: 30px;
-  border-radius: 15px;
-  max-width: 500px;
-  width: 90%;
-  text-align: justify;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  font-size: 1.1em;
-  line-height: 1.6;
-  animation: abrirCarta 0.6s ease;
-  position: relative;
-}
-
-@keyframes abrirCarta {
-  from { transform: scale(0.5); opacity: 0; }
-  to   { transform: scale(1); opacity: 1; }
-}
-
-#cerrarModal {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  background: none;
-  border: none;
-  font-size: 1.5em;
-  cursor: pointer;
-  color: #f44336;
-    }
-
-.modal-contenido h2 {
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.8em;
-  color: #f57f17;
-  text-align: center;
-  margin-bottom: 15px;
-  text-shadow: 0 0 8px #fff176, 0 0 15px #fbc02d;
-}
-
-/* 📩 Estilo del sobre */
-.sobre {
-  width: 300px;
-  height: 200px;
-  margin: 40px auto;
-  position: relative;
-  cursor: pointer;
-  perspective: 1000px;
-}
-
-.tapa {
-  width: 100%;
-  height: 100%;
-  background: #ffc107;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform-origin: top;
-  transition: transform 1s ease;
-  z-index: 2;
-  clip-path: polygon(0 0, 100% 0, 50% 50%);
-}
-
-.cuerpo {
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  padding: 20px;
-  box-sizing: border-box;
-  border: 2px solid #ffc107;
-  border-radius: 5px;
-  text-align: left;
-  font-family: "Georgia", serif;
-  overflow-y: auto;
-  z-index: 1;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.sobre.abierto .tapa {
-  transform: rotateX(180deg);
-}
-
+/* 🌟 CANVAS FLORES Y CORAZONES */
 canvas {
   position: fixed !important;
   top: 0;
@@ -166,26 +52,19 @@ canvas {
   width: 100vw !important;
   height: 100vh !important;
   z-index: 1; /* 👈 siempre al fondo */
-  display: block; /* elimina espacios raros */
+  display: block;
 }
 
+/* 📩 SOBRE (centrado abajo) */
 .sobre {
   position: fixed;
-  bottom: 30px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  width: 220px;   /* 👈 tamaño fijo */
-  height: 140px;
-  z-index: 10000; /* 👈 flotando sobre el canvas */
-}
-
-/* --- SOBRE --- */
-.sobre {
   width: 120px;
   height: 80px;
-  margin: 20px auto;
-  position: relative;
   cursor: pointer;
+  z-index: 10000;
 }
 .sobre .tapa {
   width: 100%;
@@ -200,7 +79,7 @@ canvas {
   border: 2px solid #ffc107;
 }
 
-/* --- CARTA EMERGENTE --- */
+/* 💌 CARTA EMERGENTE */
 .carta {
   display: none;
   position: fixed;
@@ -209,15 +88,15 @@ canvas {
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.7);
-  z-index: 1000;
+  z-index: 20000; /* 👆 encima de todo */
   justify-content: center;
   align-items: center;
 }
-
 .carta .contenido {
   background: #fff;
   padding: 30px;
   max-width: 500px;
+  width: 90%;
   border-radius: 10px;
   font-size: 20px;
   font-family: "Georgia", serif;
@@ -225,7 +104,6 @@ canvas {
   position: relative;
   animation: fadeIn 0.5s ease;
 }
-
 .carta .cerrar {
   position: absolute;
   top: 10px;
@@ -233,8 +111,7 @@ canvas {
   font-size: 28px;
   cursor: pointer;
 }
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-30px); }
   to { opacity: 1; transform: translateY(0); }
-}
+  }
