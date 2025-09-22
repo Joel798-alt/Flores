@@ -35,3 +35,71 @@
 #btnMusica:hover {
   background: orange;
 }
+
+/* Carta centrada */
+#carta {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  cursor: pointer;
+  z-index: 2000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#carta:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 30px rgba(255, 0, 100, 0.8);
+}
+
+/* Ventana flotante (modal) */
+#ventana {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  z-index: 3000;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Contenido del mensaje */
+#ventana .contenido {
+  position: relative;
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 800px;
+  width: 90%;
+  font-size: 1.5rem;
+  color: #e60073;
+  box-shadow: 0 0 30px rgba(255,0,100,0.8);
+  animation: aparecerCaja 0.5s ease-in-out;
+}
+
+#ventana .contenido h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ff1493;
+}
+
+/* Botón cerrar */
+#cerrar {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+@keyframes aparecerCaja {
+  from { transform: scale(0.7); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
