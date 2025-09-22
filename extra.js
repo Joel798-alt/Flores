@@ -1,44 +1,45 @@
-const btnSorpresa = document.getElementById("btnSorpresa");
-const modal = document.getElementById("modalSorpresa");
-const cerrar = document.getElementById("cerrarModal");
+const carta = document.getElementById("carta");
+const ventana = document.getElementById("ventana");
+const cerrar = document.getElementById("cerrar");
 const typedText = document.getElementById("typed-text");
 
-// 💌 Mensaje que se escribirá poco a poco
-const mensaje = `Amor mío,  
-Desde que llegaste a mi vida todo cambió. 
-Eres ese pensamiento constante que me acompaña en cada momento del día, 
-y la razón por la que sonrío aun cuando nadie me ve.  
+const mensaje = `Amor de mi vida, Adrimar 💖,
+quiero que sepas que eres lo más hermoso que me ha pasado.
+Desde que llegaste llenaste mis días de alegría, ternura y esperanza.
+Cada detalle que hago, incluso este proyecto en el que me demoré horas,
+lo hago con todo mi corazón porque te amo profundamente. 💕
 
-Quiero que sepas que en cada latido de mi corazón estás tú, 
-y que mis sueños siempre llevan tu nombre.  
+Eres mi novia, mi compañera y mi futura esposa 💍.
+No importa el tiempo ni las dificultades,
+siempre estaré para ti, porque mi amor por ti no tiene límites. ❤️
 
-Tú eres mi fuerza y mi inspiración. 
-Prometo amarte siempre, porque eres la persona con la que quiero caminar cada día de mi vida.  
+Te amo más de lo que las palabras pueden expresar. ✨`;
 
-Eres mi sol, mi refugio y mi razón de ser. 
-Gracias por existir, gracias por elegirme, gracias por ser mi todo. 🌻💛`;
-
-let i = 0;
-let speed = 40; // ⏳ velocidad de escritura (ms por letra)
-let typing;
-
-function typeWriter() {
-  if (i < mensaje.length) {
-    typedText.textContent += mensaje.charAt(i);
+// Función para escribir el mensaje poco a poco
+function escribirTexto(texto, elemento, velocidad = 40) {
+  let i = 0;
+  elemento.innerHTML = "";
+  const intervalo = setInterval(() => {
+    elemento.innerHTML += texto.charAt(i);
     i++;
-    typing = setTimeout(typeWriter, speed);
-  }
+    if (i >= texto.length) clearInterval(intervalo);
+  }, velocidad);
 }
 
-btnSorpresa.addEventListener("click", () => {
-  modal.style.display = "flex";
-  typedText.textContent = ""; // reset
-  i = 0;
-  clearTimeout(typing);
-  typeWriter();
+// Abrir ventana y escribir el mensaje
+carta.addEventListener("click", () => {
+  ventana.style.display = "flex";
+  escribirTexto(mensaje, typedText, 40); // velocidad: 40ms por letra
 });
 
+// Cerrar con la X
 cerrar.addEventListener("click", () => {
-  modal.style.display = "none";
-  clearTimeout(typing);
+  ventana.style.display = "none";
+});
+
+// Cerrar clickeando fuera del contenido
+window.addEventListener("click", (e) => {
+  if (e.target === ventana) {
+    ventana.style.display = "none";
+  }
 });
