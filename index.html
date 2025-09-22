@@ -1,37 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Flores y Corazones</title>
   <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./extra.css"> <!-- 👈 aquí va el extra -->
+  <link rel="stylesheet" href="./extra.css"> <!-- 👈 estilos extra -->
 </head>
 <body class="container">
+  <!-- ✨ Mensaje superior -->
   <h1 class="mensaje">Feliz 21 de Septiembre 🌻💛</h1>
+
   <!-- 🎶 Música de fondo -->
-<audio id="musica" autoplay loop>
-  <source src="musica.mp3" type="audio/mpeg">
-  Tu navegador no soporta el audio.
-</audio>
+  <audio id="musica" autoplay loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    Tu navegador no soporta el audio.
+  </audio>
 
-<!-- 🔊 Botón para encender/apagar la música -->
-<button id="btnMusica">🔊 Música</button>
+  <!-- 🔊 Botón para encender/apagar la música -->
+  <button id="btnMusica">🔊 Música</button>
 
-<script>
-  const musica = document.getElementById("musica");
-  const btn = document.getElementById("btnMusica");
+  <script>
+    const musica = document.getElementById("musica");
+    const btn = document.getElementById("btnMusica");
 
-  btn.addEventListener("click", () => {
-    if (musica.paused) {
-      musica.play();
-      btn.textContent = "🔊 Música";
-    } else {
-      musica.pause();
-      btn.textContent = "🔇 Silencio";
-    }
-  });
-</script>
-<div class="night"></div>
+    btn.addEventListener("click", () => {
+      if (musica.paused) {
+        musica.play();
+        btn.textContent = "🔊 Música";
+      } else {
+        musica.pause();
+        btn.textContent = "🔇 Silencio";
+      }
+    });
+  </script>
+
+  <!-- 🌸 Flores -->
+  <div class="night"></div>
   <div class="flowers">
     <div class="flower flower--1">
       <div class="flower__leafs flower__leafs--1">
@@ -44,19 +48,21 @@
     </div>
   </div>
 
-<!-- 📩 Sobre -->
-<div class="sobre" id="sobre">
-  <div class="tapa"></div>
-  <div class="cuerpo"></div>
-</div>
-
-<!-- 💌 Carta emergente -->
-<div id="carta" class="carta">
-  <div class="contenido">
-    <span class="cerrar">&times;</span>
-    <p id="typed-text"></p>
+  <!-- 📩 SOBRE (icono) -->
+  <div id="sobre" class="sobre" role="button" aria-label="Abrir carta">
+    <div class="tapa"></div>
+    <div class="cuerpo"></div>
   </div>
-</div>
+
+  <!-- 💌 CARTA EMERGENTE -->
+  <div id="carta" class="carta" aria-hidden="true">
+    <div class="contenido" role="dialog" aria-modal="true">
+      <button class="cerrar" aria-label="Cerrar carta">&times;</button>
+      <div id="typed-text"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
   <script src="./script.js"></script>
   <script src="./extra.js"></script>
 </body>
